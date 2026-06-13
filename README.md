@@ -235,10 +235,8 @@
             let shieldActive = false;
             let shieldTimer = 0;
             let shieldInterval = null;
-
             // Particles Array
             let particles = [];
-
             // UI Elements
             const canvas = document.getElementById('gameCanvas');
             const ctx = canvas.getContext('2d');
