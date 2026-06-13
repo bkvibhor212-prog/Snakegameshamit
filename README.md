@@ -1,4 +1,4 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,8 +46,6 @@
     </style>
 </head>
 <body class="min-h-screen text-slate-100 flex flex-col justify-between overflow-x-hidden">
-
-    <!-- HEADER -->
     <header class="bg-gray-950/80 border-b border-gray-800 backdrop-blur-md px-4 py-3 sticky top-0 z-40">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -63,8 +61,6 @@
                     <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase">Classic Arcade v2.5</p>
                 </div>
             </div>
-
-            <!-- AUDIO & CONTROLS CONFIG -->
             <div class="flex items-center gap-3">
                 <button id="soundToggleBtn" class="bg-gray-900 hover:bg-gray-800 border border-gray-800 p-2 rounded-xl text-emerald-400 transition-all flex items-center gap-1.5" title="Toggle Sound FX">
                     <svg id="soundOnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,14 +75,8 @@
             </div>
         </div>
     </header>
-
-    <!-- MAIN ARCADE BODY -->
     <main class="flex-1 max-w-5xl w-full mx-auto p-4 flex flex-col lg:flex-row gap-6 items-stretch justify-center">
-        
-        <!-- COLUMN 1: CONTROLS, SCORES & SELECTIONS -->
         <section class="w-full lg:w-80 flex flex-col gap-4">
-            
-            <!-- SCORES & STATUS -->
             <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-4 flex flex-row lg:flex-col justify-between gap-4">
                 <div class="flex-1">
                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest block">Session Score</span>
@@ -97,8 +87,6 @@
                     <div id="highScore" class="retro-font text-3xl md:text-4xl font-black text-teal-400 mt-1">0000</div>
                 </div>
             </div>
-
-            <!-- GAME MODE SELECTOR -->
             <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-4 space-y-3">
                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Select Arena Mode</span>
                 <div class="grid grid-cols-3 lg:grid-cols-1 gap-2">
@@ -113,8 +101,6 @@
                     </button>
                 </div>
             </div>
-
-            <!-- POWER-UP LEGEND -->
             <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-4 space-y-3 flex-1 hidden lg:block">
                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Arcade Almanac</span>
                 <div class="space-y-2.5 text-xs">
@@ -142,11 +128,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- COLUMN 2: MAIN ARCADE CANVAS & HUD -->
         <section class="flex-1 flex flex-col gap-4">
-            
-            <!-- GAME SCREEN HUD / PROGRESS BAR -->
             <div class="bg-gray-900/40 border border-gray-800/80 rounded-2xl px-4 py-3 flex items-center justify-between text-xs font-semibold text-gray-400">
                 <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
@@ -157,14 +139,8 @@
                     <div id="shieldStatus" class="hidden text-indigo-400 font-bold animate-pulse">🛡️ Shield Active: <span id="shieldTimer">0</span>s</div>
                 </div>
             </div>
-
-            <!-- THE CANVAS WRAPPER -->
             <div class="relative flex-1 min-h-[320px] md:min-h-[440px] bg-gray-950 rounded-3xl overflow-hidden border-2 border-gray-800 shadow-2xl flex items-center justify-center p-2">
-                
-                <!-- Canvas Element -->
                 <canvas id="gameCanvas" class="max-w-full max-h-full block rounded-2xl select-none outline-none"></canvas>
-
-                <!-- GAME OVER OVERLAY -->
                 <div id="gameOverScreen" class="absolute inset-0 bg-gray-950/90 backdrop-blur-sm hidden flex-col items-center justify-center p-6 text-center z-20">
                     <div class="animate-bounce mb-4 bg-red-500/10 text-red-500 p-4 rounded-full border border-red-500/20">
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,8 +149,7 @@
                     </div>
                     <h2 class="retro-font text-3xl font-black tracking-widest text-red-500 mb-1">CRASH DETECTED</h2>
                     <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">Simulation Terminated</p>
-
-                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full max-w-xs mb-6 space-y-1">
+                  <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full max-w-xs mb-6 space-y-1">
                         <div class="flex justify-between text-xs">
                             <span class="text-gray-500">Final Score:</span>
                             <span id="finalScore" class="font-bold text-slate-100">0000</span>
@@ -183,15 +158,12 @@
                             <span class="text-gray-500">Apples Eaten:</span>
                             <span id="finalApples" class="font-bold text-emerald-400">0</span>
                         </div>
-                    </div>
-
-                    <button id="restartBtn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 transform active:scale-95">
+                        </div>
+                   <button id="restartBtn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 transform active:scale-95">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"></path></svg>
                         Play Again
                     </button>
                 </div>
-
-                <!-- START / PAUSE OVERLAY -->
                 <div id="pauseScreen" class="absolute inset-0 bg-gray-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-20">
                     <div class="mb-4 bg-emerald-500/10 text-emerald-400 p-4 rounded-full border border-emerald-500/20">
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,8 +180,6 @@
                     </button>
                 </div>
             </div>
-
-            <!-- MOBILE DIRECTION CONTROLS -->
             <div class="block md:hidden bg-gray-900/60 border border-gray-800 p-4 rounded-3xl">
                 <div class="grid grid-cols-3 gap-2 max-w-[200px] mx-auto">
                     <div></div>
@@ -233,18 +203,14 @@
                     <div></div>
                 </div>
             </div>
-
         </section>
     </main>
-
-    <!-- FOOTER -->
     <footer class="bg-gray-950 border-t border-gray-900 py-4 px-4 text-center text-xs text-gray-600">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
             <p>© 2026 Neon Viper. Designed for dynamic desktop and mobile touchscreens.</p>
             <p>Built with Vanilla JavaScript & Canvas 2D.</p>
         </div>
     </footer>
-
     <!-- GAME ENGINE CODE -->
     <script>
         // Wait for DOM layout to load securely
@@ -252,7 +218,6 @@
             // --- CONSTANTS & CONFIGS ---
             const CANVAS_CONTAINER_RATIO = 20; // grid size
             const GRID_COUNT = 20; // 20x20 cells
-
             // Game State
             let snake = [];
             let direction = { x: 1, y: 0 };
@@ -268,15 +233,12 @@
             let gameInterval = null;
             let activeMode = 'classic'; // classic, obstacles, speed
             let soundEnabled = true;
-
             // Power-up States
             let shieldActive = false;
             let shieldTimer = 0;
             let shieldInterval = null;
-
             // Particles Array
             let particles = [];
-
             // UI Elements
             const canvas = document.getElementById('gameCanvas');
             const ctx = canvas.getContext('2d');
@@ -292,12 +254,10 @@
             const restartBtn = document.getElementById('restartBtn');
             const finalScoreEl = document.getElementById('finalScore');
             const finalApplesEl = document.getElementById('finalApples');
-
             // Sound Toggle Elements
             const soundToggleBtn = document.getElementById('soundToggleBtn');
             const soundOnIcon = document.getElementById('soundOnIcon');
             const soundOffIcon = document.getElementById('soundOffIcon');
-
             // Keyboard/Direction Mapping
             const directions = {
                 ArrowUp: { x: 0, y: -1 },
@@ -309,10 +269,8 @@
                 a: { x: -1, y: 0 },
                 d: { x: 1, y: 0 }
             };
-
             // Setup Scores in Interface
             highScoreEl.textContent = String(highScore).padStart(4, '0');
-
             // --- RESPONSIVE CANVAS ---
             function resizeCanvas() {
                 // Adjust sizes fluidly based on its parent size
@@ -324,7 +282,6 @@
             }
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
-
             // --- SYNTH AUDIO ENGINE (WEB AUDIO API) ---
             function playChiptune(type) {
                 if (!soundEnabled) return;
@@ -334,10 +291,8 @@
                     const audioCtx = new AudioContext();
                     const osc = audioCtx.createOscillator();
                     const gain = audioCtx.createGain();
-
                     osc.connect(gain);
                     gain.connect(audioCtx.destination);
-
                     if (type === 'eat') {
                         // High pitch bubble sound
                         osc.type = 'triangle';
@@ -380,14 +335,12 @@
                     console.warn("Audio Context failed or was blocked by browser policies.");
                 }
             }
-
             // --- PARTICLE EMITTER ENGINE ---
             function createExplosion(x, y, color) {
                 const cellWidth = canvas.width / GRID_COUNT;
                 const cellHeight = canvas.height / GRID_COUNT;
                 const centerX = (x * cellWidth) + (cellWidth / 2);
                 const centerY = (y * cellHeight) + (cellHeight / 2);
-
                 for (let i = 0; i < 15; i++) {
                     particles.push({
                         x: centerX,
@@ -401,7 +354,6 @@
                     });
                 }
             }
-
             function updateParticles() {
                 for (let i = particles.length - 1; i >= 0; i--) {
                     const p = particles[i];
@@ -413,7 +365,6 @@
                     }
                 }
             }
-
             function drawParticles() {
                 particles.forEach(p => {
                     ctx.save();
@@ -427,7 +378,6 @@
                     ctx.restore();
                 });
             }
-
             // --- INITIALIZE & RESET GAME STATE ---
             function initGame() {
                 snake = [
@@ -443,21 +393,17 @@
                 shieldActive = false;
                 shieldTimer = 0;
                 clearInterval(shieldInterval);
-                shieldStatusEl.classList.add('hidden');
-                
+                shieldStatusEl.classList.add('hidden')
                 currentScoreEl.textContent = String(score).padStart(4, '0');
                 currentLevelEl.textContent = level;
-
                 // Build Obstacles if applicable
                 obstacles = [];
                 if (activeMode === 'obstacles') {
                     generateObstacles();
                 }
-
                 spawnFood();
                 particles = [];
             }
-
             function generateObstacles() {
                 // Create random static blockades on the field
                 // Ensure they don't block the center starting vector
@@ -468,7 +414,6 @@
                     while (!isValid) {
                         obsX = Math.floor(Math.random() * GRID_COUNT);
                         obsY = Math.floor(Math.random() * GRID_COUNT);
-                        
                         // Check distance from starting area
                         const distFromStart = Math.abs(obsX - 10) + Math.abs(obsY - 10);
                         if (distFromStart > 4) {
@@ -478,25 +423,20 @@
                     obstacles.push({ x: obsX, y: obsY });
                 }
             }
-
             function spawnFood() {
                 let validSpawn = false;
                 let rx, ry;
-
                 while (!validSpawn) {
                     rx = Math.floor(Math.random() * GRID_COUNT);
                     ry = Math.floor(Math.random() * GRID_COUNT);
-
                     // Must not collide with snake
                     const collidesWithSnake = snake.some(part => part.x === rx && part.y === ry);
                     // Must not collide with active obstacles
                     const collidesWithObstacles = obstacles.some(obs => obs.x === rx && obs.y === ry);
-
                     if (!collidesWithSnake && !collidesWithObstacles) {
                         validSpawn = true;
                     }
                 }
-
                 // Decide Food Type
                 const rand = Math.random();
                 let type = 'apple';
@@ -505,38 +445,30 @@
                 } else if (rand > 0.75) {
                     type = 'golden'; // Golden Apple
                 }
-
                 food = { x: rx, y: ry, type: type };
             }
-
             // --- GAME PLAY LOOP ---
             function gameStep() {
                 direction = nextDirection;
-
                 // Predict Head movement
                 const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
-
                 // Handle Wall Bounds Clipping
                 if (head.x < 0) head.x = GRID_COUNT - 1;
                 if (head.x >= GRID_COUNT) head.x = 0;
                 if (head.y < 0) head.y = GRID_COUNT - 1;
                 if (head.y >= GRID_COUNT) head.y = 0;
-
                 // Collision Verifications
                 // Self-crash
                 const selfCrash = snake.some(part => part.x === head.x && part.y === head.y);
                 // Obstacle collision
                 const obstacleCrash = obstacles.some(obs => obs.x === head.x && obs.y === head.y);
-
                 if ((selfCrash || obstacleCrash) && !shieldActive) {
                     // Trigger Death
                     endGame();
                     return;
                 }
-
                 // Add new head position
                 snake.unshift(head);
-
                 // Food consumption detection
                 if (head.x === food.x && head.y === food.y) {
                     handleFoodConsumption();
@@ -544,16 +476,13 @@
                     // Normal movement, pop tail to maintain length
                     snake.pop();
                 }
-
                 updateParticles();
                 draw();
             }
-
             function handleFoodConsumption() {
                 applesEaten++;
                 let points = 10;
                 let soundType = 'eat';
-
                 if (food.type === 'golden') {
                     points = 30;
                     soundType = 'powerup';
@@ -566,17 +495,14 @@
                 } else {
                     createExplosion(food.x, food.y, '#10B981');
                 }
-
                 score += points;
                 if (score > highScore) {
                     highScore = score;
                     localStorage.setItem('snake_highscore', highScore);
                     highScoreEl.textContent = String(highScore).padStart(4, '0');
                 }
-
                 currentScoreEl.textContent = String(score).padStart(4, '0');
                 playChiptune(soundType);
-
                 // Level progression & Speed calibration
                 if (applesEaten % 5 === 0) {
                     level++;
@@ -586,16 +512,13 @@
                         adjustGameSpeed();
                     }
                 }
-
                 spawnFood();
             }
-
             function activateShield(duration) {
                 shieldActive = true;
                 shieldTimer = duration;
                 shieldStatusEl.classList.remove('hidden');
                 shieldTimerEl.textContent = shieldTimer;
-
                 clearInterval(shieldInterval);
                 shieldInterval = setInterval(() => {
                     shieldTimer--;
@@ -607,48 +530,39 @@
                     }
                 }, 1000);
             }
-
             function adjustGameSpeed() {
                 // Speed run mode: gets continuously faster
                 clearInterval(gameInterval);
                 const currentSpeed = Math.max(120 - (level * 6), 40);
                 gameInterval = setInterval(gameStep, currentSpeed);
             }
-
             function startGame() {
                 initGame();
                 isPlaying = true;
                 isPaused = false;
                 pauseScreen.classList.add('hidden');
                 gameOverScreen.classList.add('hidden');
-
                 let speed = 100; // default speed for Classic & Obstacles
-                if (activeMode === 'speed') speed = 120;
-                
+                if (activeMode === 'speed') speed = 120;  
                 clearInterval(gameInterval);
                 gameInterval = setInterval(gameStep, speed);
                 playChiptune('powerup');
             }
-
             function endGame() {
                 isPlaying = false;
                 clearInterval(gameInterval);
                 clearInterval(shieldInterval);
                 playChiptune('crash');
-
                 finalScoreEl.textContent = String(score).padStart(4, '0');
                 finalApplesEl.textContent = applesEaten;
                 gameOverScreen.classList.remove('hidden');
             }
-
             // --- GRAPHICS RENDERING (CANVAS) ---
             function draw() {
                 ctx.fillStyle = '#030712';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
                 const cellWidth = canvas.width / GRID_COUNT;
                 const cellHeight = canvas.height / GRID_COUNT;
-
                 // Draw Grid Guide lines
                 ctx.strokeStyle = 'rgba(31, 41, 55, 0.4)';
                 ctx.lineWidth = 1;
@@ -657,13 +571,11 @@
                     ctx.moveTo(i * cellWidth, 0);
                     ctx.lineTo(i * cellWidth, canvas.height);
                     ctx.stroke();
-
                     ctx.beginPath();
                     ctx.moveTo(0, i * cellHeight);
                     ctx.lineTo(canvas.width, i * cellHeight);
                     ctx.stroke();
                 }
-
                 // Draw Obstacles (Obstacles Mode)
                 if (activeMode === 'obstacles') {
                     ctx.shadowBlur = 8;
@@ -681,12 +593,10 @@
                         );
                     });
                 }
-
                 // Draw Food
                 let foodColor = '#EF4444'; // default red apple
                 let shadowColor = '#EF4444';
                 let emoji = '🍎';
-
                 if (food.type === 'golden') {
                     foodColor = '#F59E0B';
                     shadowColor = '#F59E0B';
@@ -696,13 +606,11 @@
                     shadowColor = '#6366F1';
                     emoji = '🛡️';
                 }
-
                 // Draw pulsing neon glow for food
                 ctx.save();
                 ctx.shadowBlur = 12 + Math.sin(Date.now() / 100) * 4;
                 ctx.shadowColor = shadowColor;
-                ctx.fillStyle = foodColor;
-                
+                ctx.fillStyle = foodColor;                
                 // Draw beautifully structured circular item
                 const fx = food.x * cellWidth + (cellWidth / 2);
                 const fy = food.y * cellHeight + (cellHeight / 2);
@@ -710,16 +618,13 @@
                 ctx.arc(fx, fy, (cellWidth / 2) - 3, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.restore();
-
                 // Draw Food Stem/Indicator decoration
                 ctx.fillStyle = '#10B981';
                 ctx.fillRect(fx - 1, fy - (cellHeight / 2) + 1, 3, 4);
-
                 // Draw Snake
                 snake.forEach((part, index) => {
                     const isHead = index === 0;
-                    ctx.save();
-                    
+                    ctx.save();                    
                     if (shieldActive) {
                         ctx.fillStyle = '#6366F1';
                         ctx.shadowColor = '#818CF8';
@@ -731,24 +636,19 @@
                         ctx.fillStyle = `rgba(16, 185, 129, ${1 - (index / snake.length) * 0.65})`;
                         ctx.shadowColor = '#10B981';
                     }
-
-                    ctx.shadowBlur = isHead ? 15 : 6;
-                    
+                    ctx.shadowBlur = isHead ? 15 : 6;                    
                     const pad = 2;
                     const px = part.x * cellWidth + pad;
                     const py = part.y * cellHeight + pad;
                     const pw = cellWidth - (pad * 2);
                     const ph = cellHeight - (pad * 2);
-
                     // Draw rounded viper scales
                     drawRoundedRect(px, py, pw, ph, 5, true, false);
-
                     // Eyes decorations on snake head
                     if (isHead) {
                         ctx.fillStyle = '#030712';
                         ctx.shadowBlur = 0;
-                        const eyeRadius = 2.5;
-                        
+                        const eyeRadius = 2.5;                        
                         // Decide eye layouts based on directional vector
                         if (direction.x !== 0) { // Moving Horizontally
                             ctx.beginPath();
@@ -764,11 +664,9 @@
                     }
                     ctx.restore();
                 });
-
                 // Render Active Burst Particles
                 drawParticles();
             }
-
             // Canvas Drawing Helpers
             function drawRoundedRect(x, y, width, height, radius, fill, stroke) {
                 ctx.beginPath();
@@ -785,7 +683,6 @@
                 if (fill) ctx.fill();
                 if (stroke) ctx.stroke();
             }
-
             // --- CONTROLLER ACTIONS ---
             function changeDirection(dx, dy) {
                 // Prevent running backwards into itself
@@ -793,7 +690,6 @@
                 nextDirection = { x: dx, y: dy };
                 playChiptune('tick');
             }
-
             // Keyboard Events
             window.addEventListener('keydown', e => {
                 const dir = directions[e.key];
@@ -802,8 +698,7 @@
                     if (!isPlaying) return;
                     changeDirection(dir.x, dir.y);
                 }
-                
-                // Toggle Space for Pause / Action
+                                // Toggle Space for Pause / Action
                 if (e.key === ' ' || e.key === 'Spacebar') {
                     e.preventDefault();
                     if (isPlaying) {
@@ -822,30 +717,24 @@
                     }
                 }
             });
-
             // Mobile Navigation click listeners
             document.getElementById('ctrlUp').addEventListener('click', () => changeDirection(0, -1));
             document.getElementById('ctrlDown').addEventListener('click', () => changeDirection(0, 1));
             document.getElementById('ctrlLeft').addEventListener('click', () => changeDirection(-1, 0));
             document.getElementById('ctrlRight').addEventListener('click', () => changeDirection(1, 0));
-
             // --- MOBILE SWIPE INTERFACE DETECTORS ---
             let touchStartX = 0;
             let touchStartY = 0;
-
             canvas.addEventListener('touchstart', e => {
                 touchStartX = e.touches[0].clientX;
                 touchStartY = e.touches[0].clientY;
             }, { passive: true });
-
             canvas.addEventListener('touchend', e => {
                 if (!isPlaying) return;
                 const dx = e.changedTouches[0].clientX - touchStartX;
-                const dy = e.changedTouches[0].clientY - touchStartY;
-                
+                const dy = e.changedTouches[0].clientY - touchStartY;               
                 const absX = Math.abs(dx);
                 const absY = Math.abs(dy);
-
                 if (Math.max(absX, absY) > 30) { // Threshold for swipe
                     if (absX > absY) {
                         // Swipe Horizontal
@@ -856,19 +745,15 @@
                     }
                 }
             }, { passive: true });
-
-            // --- UI PANEL INTERACTIVITY ---
-            
+            // --- UI PANEL INTERACTIVITY ---        
             // Mode Selectors
             const modeButtons = {
                 classic: document.getElementById('modeClassic'),
                 obstacles: document.getElementById('modeObstacles'),
                 speed: document.getElementById('modeSpeed')
             };
-
             function setMode(mode) {
-                activeMode = mode;
-                
+                activeMode = mode;                
                 // Update styling of buttons
                 Object.keys(modeButtons).forEach(m => {
                     const btn = modeButtons[m];
@@ -878,22 +763,17 @@
                         btn.className = "mode-btn bg-gray-950 border border-gray-800 text-gray-400 text-xs font-bold py-2.5 px-3 rounded-xl transition-all hover:border-gray-700 hover:text-gray-200";
                     }
                 });
-
                 // Label updates
-                activeModeLabelEl.textContent = `${mode} Arena`;
-                
+                activeModeLabelEl.textContent = `${mode} Arena`;               
                 initGame();
                 draw();
             }
-
             modeButtons.classic.addEventListener('click', () => setMode('classic'));
             modeButtons.obstacles.addEventListener('click', () => setMode('obstacles'));
             modeButtons.speed.addEventListener('click', () => setMode('speed'));
-
             // Play/Restart Buttons
             startBtn.addEventListener('click', startGame);
             restartBtn.addEventListener('click', startGame);
-
             // Audio config toggle
             soundToggleBtn.addEventListener('click', () => {
                 soundEnabled = !soundEnabled;
@@ -905,7 +785,6 @@
                     soundOffIcon.classList.remove('hidden');
                 }
             });
-
             // Render Initial Frame on Screen
             initGame();
             draw();
